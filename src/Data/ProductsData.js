@@ -1,7 +1,7 @@
 export const productsData = [
     {
         id : 1,
-        img_url : "http://assets.stickpng.com/images/5b37feb22751046a99744b98.png",
+        img_url : "https://dronestore.id/media/catalog/product/cache/4/small_image/600x400/9df78eab33525d08d6e5fb8d27136e95/j/u/jual_drone_lipat_dji_mavic_air_2_fly_more_combo_original_official_retailer_resmi_indonesia.jpg",
         title : "Dji Mavic Air",
         desc : "",
         price : 300,

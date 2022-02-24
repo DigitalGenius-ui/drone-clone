@@ -3,6 +3,11 @@ import Banner from './components/Banner/Banner';
 import Category from './components/category/Category';
 import Header from './components/Header/Header';
 import Products from './components/Products/Products';
+import Learning from './components/Learning/Learning';
+import Hire from './components/Hire/Hire';
+import Interview from './components/Interview/Interview';
+import Subscribe from './components/Subscribe/Subscribe'
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -11,6 +16,11 @@ function App() {
       <Banner />
       <Products/>
       <Category/>
+      <Learning/>
+      <Hire/>
+      <Interview />
+      <Subscribe />
+      <Footer/>
     </div>
   );
 }

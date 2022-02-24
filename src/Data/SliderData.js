@@ -1,4 +1,4 @@
-export const sliderData = [
+export const slider =[
     {
         id: 1,
         img_url : "https://digitalgenius-ui.github.io/drone/images/home_3.png",
@@ -19,5 +19,5 @@ export const sliderData = [
         name : "oemfpv",
         tagline : "selfie wifi",
         price : 499
-    },
+    }
 ]

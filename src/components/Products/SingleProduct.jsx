@@ -28,7 +28,7 @@ const SingleProduct = ({item}) => {
 export default SingleProduct;
 
 const Cart = styled.div`
-    border : 1px solid #000;
+    border : 1px solid #3333339d;
     margin-right : 1rem;
     .title{
         margin : 0 0.5rem;
@@ -39,11 +39,12 @@ const Cart = styled.div`
     }
 `
 const Img = styled.div`
+    padding : 0.5rem ;
 `
 const Image = styled.img`
     width : 100%;
     height : 10rem;
-    object-fit: contain;
+    object-fit: cover;
 `
 const Footer = styled.div`
     display : flex;
