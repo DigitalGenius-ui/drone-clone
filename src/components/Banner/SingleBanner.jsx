@@ -1,21 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import  { addItems } from '../../redux/slice';
+import { useDispatch } from 'react-redux';
 
-const SingleBanner = ({item}) => {
+const SingleBanner = ({item, error}) => {
+    const { id, title, tagline, img_url, price, disc } = item;
+    const dispatch = useDispatch();
+    const addCart = () => {
+        dispatch(addItems({
+            id, title, img_url, tagline, price, disc
+        }))
+    }
   return (
         <Products>
             <Text>
-                <h3 className='name'>{item.name}</h3>
-                <h2 className='tag'>{item.tagline}</h2>
+                <h3 className='name'>{title}</h3>
+                <h2 className='tag'>{tagline}</h2>
             </Text>
             <Img>
-                <Image src={item.img_url} />
+                <Image src={img_url} />
             </Img>
             <Add>
-                <h4>${item.price}
+                <h4>${price}
                 <span>only</span>
                 </h4>
-                <button className='btn'>add to cart</button>
+                <button 
+                onClick={addCart}
+                className='btn'>add to cart</button>
             </Add>
         </Products>
   );

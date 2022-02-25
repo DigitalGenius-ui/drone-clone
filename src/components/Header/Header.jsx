@@ -2,8 +2,8 @@ import React from 'react';
 import { AppBar, Badge, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import { ExitToApp, FavoriteBorder, ShoppingBasket } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
-// https://digitalgenius-ui.github.io/drone/
 const Header = () => {
   const useStyles = makeStyles((theme) => ({
     customBadge:{
@@ -24,12 +24,16 @@ const Header = () => {
               </Typography>
               <Icons>
                 <Icon>
-                  <Badge badgeContent={4} classes={{badge : classes.customBadge}}>
-                    <FavoriteBorder style={{width : "1.3rem"}}/></Badge>
+                  <Link to="/like">
+                    <Badge badgeContent={4} classes={{badge : classes.customBadge}}>
+                      <FavoriteBorder style={{width : "1.3rem"}}/></Badge>
+                  </Link>
                 </Icon>
                 <Icon>
+                  <Link to="/cart">
                   <Badge badgeContent={4} classes={{badge : classes.customBadge}}>
                     <ShoppingBasket style={{width : "1.3rem"}}/></Badge>
+                  </Link>
                 </Icon>
                 <Login><ExitToApp className="login"/></Login>
               </Icons>
@@ -92,6 +96,9 @@ const Icon = styled.div`
   color : #3333339d;
   margin-right: 1.5rem;
   cursor : pointer;
+  a{
+    color : #3333339d;
+  }
 `
 
 const Login = styled.div`

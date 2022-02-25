@@ -12,8 +12,7 @@ const Products = () => {
     productsItems = 
     data?.map((item, i) => (
         <SingleProduct item={item} key={i}/>
-    ))
-    console.log(data)
+    ));
   return (
     <Texts>
         <Typography variant="h3" className="text">

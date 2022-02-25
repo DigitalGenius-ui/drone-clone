@@ -2,22 +2,33 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
 import { LocalMall, FavoriteBorder } from '@material-ui/icons';
+import { addItems } from '../../redux/slice';
+import { useDispatch } from 'react-redux';
 
 const SingleProduct = ({item}) => {
+    const dispatch = useDispatch();
+    const { img_url, title, price, disc} = item;
+    const addCart = () => {
+        dispatch(addItems({
+            img_url, title, price, disc
+        }))
+    }
   return (
     <Cart>
         <Img>
-            <Image src={item.img_url}/>
+            <Image src={img_url}/>
         </Img>
         <Typography className="title" variant="h6">
-            {item.title}
+            {title}
         </Typography>
         <Footer>
             <Typography variant="h6" className="price">
-                ${item.price}
+                ${price}
             </Typography>
             <Icons>
-                <div><LocalMall style={{fontSize : "1.3rem", color : "#333333dd"}}/></div>
+                <div
+                onClick={addCart}
+                ><LocalMall style={{fontSize : "1.3rem", color : "#333333dd"}}/></div>
                 <div><FavoriteBorder style={{fontSize : "1.3rem", color : "#333333dd"}}/></div>
             </Icons>
         </Footer>
