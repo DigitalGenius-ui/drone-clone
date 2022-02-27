@@ -30,6 +30,7 @@ const Text = styled.div`
     color : white;
     background-color: ${props => props.color};
     padding : 0.5rem;
+    width : 100%;
     h4{
         font-weight: 500;
         font-size : 0.9rem;

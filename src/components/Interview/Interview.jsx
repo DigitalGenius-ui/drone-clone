@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import SingleInterview from './SingleInterview';
@@ -6,22 +6,25 @@ import { kids } from "../../Data/InterviewItems";
 import { ArrowRight } from "@material-ui/icons";
 
 const Learning = () => {
+  const [visible, setVisible] = useState(3);
+  const addMore = () => {
+    setVisible(prev => prev + 3);
+  }
   return (
     <Contents>
       <Typography className="title" variant="h4">
         interview-Ask a Drone Expert
       </Typography>
       <Items>
-        {kids.map((item) => (
-          <SingleInterview item={item} key={item.id}/>
-        ))}
+        {kids.slice(0, visible).map((item) => (<SingleInterview item={item} key={item.id}/>))}
       </Items>
       <Btn>
         <Button 
+        onClick={addMore}
         variant="contained"
         color="default"
         className="btn"
-        endIcon={<ArrowRight />}>View All</Button>
+        endIcon={<ArrowRight />}>Show All</Button>
       </Btn>
     </Contents>
   );

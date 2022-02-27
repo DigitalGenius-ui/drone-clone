@@ -48,6 +48,9 @@ const Contents = styled.div`
     margin : 0 auto;
     padding-bottom: 1rem;
     color : #00000090;
+    @media(max-width : 991px){
+      width : 90%;
+    }
   }
 `
 const Items = styled.div`
@@ -63,6 +66,9 @@ const Btns = styled.div`
   display: flex;
   align-items: center;
   gap : 1rem;
+  @media(max-width : 412px){
+      flex-direction : column-reverse;
+    }
   .btn{
     display: flex;
     align-items: center;

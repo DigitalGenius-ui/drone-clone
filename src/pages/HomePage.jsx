@@ -8,17 +8,17 @@ import Interview from '../components/Interview/Interview';
 import Subscribe from '../components/Subscribe/Subscribe';
 import Category from '../components/category/Category';
 
-const HomePage = () => {
+const HomePage = ({search}) => {
   return (
     <div>
         <Banner />
-      <Products/>
-      <Category/>
-      <Learning/>
-      <Hire/>
-      <Interview/>
-      <Subscribe />
-      <Footer/>
+        <Products search={search}/>
+        <Category/>
+        <Learning/>
+        <Hire/>
+        <Interview/>
+        <Subscribe />
+        <Footer/>
     </div>
   )
 }

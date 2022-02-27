@@ -6,11 +6,13 @@ import Slider from 'react-slick';
 import { settings } from '../slickSlider/SlickProduct';
 import { useGetAllProductsQuery } from '../../redux/fetchData';
 
-const Products = () => {
+const Products = ({search}) => {
     let productsItems = ""
-    const { data, error, isLoading } = useGetAllProductsQuery();
+    const { data, error } = useGetAllProductsQuery();
     productsItems = 
-    data?.map((item, i) => (
+    data?.filter((sear) => (
+        sear.title.toLowerCase().includes(search)
+    )).map((item, i) => (
         <SingleProduct item={item} key={i}/>
     ));
   return (
@@ -19,8 +21,9 @@ const Products = () => {
             Treading Products
         </Typography>
         {error && <div>{error}</div>}
-        {isLoading && <div>...Loading</div>}
-        <div><Slider {...settings}>{productsItems}</Slider></div>
+        <div
+        className='slider'
+        ><Slider {...settings}>{productsItems}</Slider></div>
     </Texts>
   )
 }
@@ -37,4 +40,19 @@ const Texts  =styled.div`
         font-weight: 600;
         color : #3333339d;
     }
+    .slider{
+        .slick-dots{
+            width: 100%;
+            text-align : right;
+            bottom : -40px;
+            li{
+                margin : 0 3px;
+                button{
+                    ::before{
+                        font-size : 10px;
+                    }
+                }
+            }
+            }
+        }
 `

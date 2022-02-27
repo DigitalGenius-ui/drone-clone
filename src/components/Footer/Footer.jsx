@@ -49,6 +49,12 @@ const Contents = styled.div`
     margin : 0 auto;
     overflow: hidden;
     position : relative;
+    @media(max-width : 1031px){
+        width : 90%;
+    }
+    @media(max-width : 634px){
+        overflow: visible;
+    }
 `
 const Content = styled.div`
     background: url("https://digitalgenius-ui.github.io/drone/images/home5.png");
@@ -63,11 +69,21 @@ const Content = styled.div`
     right : 0;
     top : 1rem;
     width : 26rem;
+    @media(max-width : 1210px){
+        background-size: 20rem;
+    }
+    @media(max-width : 917px){
+        display : none;
+    }
     h4{
         font-size: 1.9rem;
         margin-top: 4rem;
         letter-spacing: 0.1rem;
         color : #f86109;
+        @media(max-width : 1210px){
+            font-size: 1.6rem;
+            margin-top: 6rem;
+        }
     }
 `
 
@@ -76,6 +92,18 @@ const Table = styled.div`
     display: flex;
     justify-content: space-evenly;
     width : 68%;
+    flex-wrap: wrap;
+    @media(max-width : 917px){
+        width : 100%;
+        justify-content: space-between;
+    }
+    @media(max-width : 634px){
+        flex-wrap: wrap-reverse;
+        margin-top: 1rem;
+    }
+    ul{
+        padding : 0 0.5rem;
+    }
     ul li {
         :nth-child(1){
             font-size: 1.2rem;

@@ -1,16 +1,16 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
-import { LocalMall, FavoriteBorder } from '@material-ui/icons';
-import { addItems } from '../../redux/slice';
+import { LocalMall } from '@material-ui/icons';
+import { addItems, } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
 
 const SingleProduct = ({item}) => {
     const dispatch = useDispatch();
-    const { img_url, title, price, disc} = item;
+    const { id,img_url, title, price, disc,} = item;
     const addCart = () => {
         dispatch(addItems({
-            img_url, title, price, disc
+            id, img_url, title, price, disc
         }))
     }
   return (
@@ -28,19 +28,18 @@ const SingleProduct = ({item}) => {
             <Icons>
                 <div
                 onClick={addCart}
-                ><LocalMall style={{fontSize : "1.3rem", color : "#333333dd"}}/></div>
-                <div><FavoriteBorder style={{fontSize : "1.3rem", color : "#333333dd"}}/></div>
+                ><LocalMall className="shopping"/></div>
             </Icons>
         </Footer>
     </Cart>
-  )
+  );
 }
 
 export default SingleProduct;
 
 const Cart = styled.div`
     border : 1px solid #3333339d;
-    margin-right : 1rem;
+    margin-left : 1rem;
     .title{
         margin : 0 0.5rem;
         padding : 0.5rem 0;
@@ -77,5 +76,15 @@ const Icons = styled.div`
     div{
         margin-right: 0.2rem;
         cursor : pointer;
+    }
+    .shopping{
+      width : 1.3rem;
+      color : #333333dd;
+      :hover{
+        color : #05c4e6;
+      }
+      :active{
+        color : #ff3300;
+      }
     }
 `

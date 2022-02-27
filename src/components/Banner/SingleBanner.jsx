@@ -37,20 +37,47 @@ export default SingleBanner;
 const Products = styled.div`
     background-color : #c7e6ff21;
     display : flex;
-    align-items : flex-end;
+    align-items: flex-end;
     justify-content: center;
     height: 380px;
+    position : relative;
+    @media(max-width : 700px){
+        align-items: center;
+    }
 `
 const Img = styled.div``
 const Image = styled.img`
     width : 27rem;
+    @media(max-width : 910px){
+        width: 23rem;
+    }
+    @media(max-width : 650px){
+        width: 19rem;
+    }
+    @media(max-width : 589px){
+        width: 17rem;
+    }
 `
 const Text = styled.div`
     margin-bottom: 3rem;
+        @media(max-width : 700px){
+            position : absolute;
+            left : 10%;
+            bottom : 0;
+        }
     h3{
         font-size: 2rem;
         text-transform: uppercase;
         color : #3333339d;
+        @media(max-width : 910px){
+            font-size: 1.6rem;
+        }
+        @media(max-width : 700px){
+            font-size: 1.4rem;
+        }
+        @media(max-width : 589px){
+            font-size: 1rem;
+        }
     }
     .name{
         background-color: #c7c7c7;
@@ -69,10 +96,24 @@ const Text = styled.div`
         margin-top: 0.3rem;
         margin-left: 0.8rem;
         text-transform: uppercase;
+        @media(max-width : 910px){
+            font-size: 1.6rem;
+        }
+        @media(max-width : 700px){
+            font-size: 1.3rem;
+        }
+        @media(max-width : 589px){
+            font-size: 1rem;
+        }
     }
 `
 const Add = styled.div`
     margin-bottom: 3rem;
+    @media(max-width : 700px){
+        position : absolute;
+        right : 15%;
+        bottom : 0;
+    }
     .btn{
         background-color: #05900ca5;
         text-transform: uppercase;
@@ -82,6 +123,12 @@ const Add = styled.div`
         border : none;
         cursor : pointer;
         font-size: 0.9rem;
+        @media(max-width : 910px){
+            font-size: 0.8rem;
+        }
+        @media(max-width : 700px){
+            font-size: 0.7rem;
+        }
         :hover{
             background-color: #05900cbc;
         }
@@ -90,6 +137,12 @@ const Add = styled.div`
         font-size: 2.5rem;
         font-weight: 400;
         color : #3333339d;
+        @media(max-width : 910px){
+            font-size: 2.1rem;
+        }
+        @media(max-width : 700px){
+            font-size: 1.9rem;
+        }
         span{
             font-size: 1.2rem;
             text-transform: uppercase;

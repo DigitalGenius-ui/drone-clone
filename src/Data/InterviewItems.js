@@ -47,20 +47,4 @@ export const kids = [
         date : "July 8, 2021",
         color : "#57c7fbdf",
     },
-    {
-        id : 7,
-        img:"https://thewiredshopper.com/wp-content/uploads/2015/08/drones-for-kids-2.jpg",
-        title:"DRONES AND SPORTS MEDIA: AN INTE-RVIEW WITH SKIP WHITMAN",
-        author :"by Davide Hostines",
-        date : "July 8, 2021",
-        color : "#57c7fbdf",
-    },
-    {
-        id : 8,
-        img:"https://thewiredshopper.com/wp-content/uploads/2015/08/drones-for-kids-2.jpg",
-        title:"DRONES AND SPORTS MEDIA: AN INTE-RVIEW WITH SKIP WHITMAN",
-        author :"by Davide Hostines",
-        date : "July 8, 2021",
-        color : "#57c7fbdf",
-    },
 ]

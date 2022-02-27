@@ -1,23 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  cart: [
-    {id: 1,
-    img_url : "https://digitalgenius-ui.github.io/drone/images/home_3.png",
-    name : "pierra",
-    tagline : "alpha1",
-    price : 299,
-    disc : "pierra alpha1 EIS GPS Mini Drone 8K Camera 3-Axis Gimbal Professional Anti-Shake Quadcopter Kai1 Dron"
-  },
-  {
-    id : 8,
-    img_url : "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-12321914/oem_2021-new-kai1-pro-drone-3-axis-gimbal-dual-camera-8k-hd-4k-video-quadcopter_full01.jpg",
-    title : "Portable KAI ONE Pro8K",
-    disc : "Portable KAI ONE Pro EIS GPS Mini Drone 8K Camera 3-Axis Gimbal Professional Anti-Shake Quadcopter Kai1 Dron",
-    price : 318
-  }
-  
-  ],
+  cart: [],
+  cartTotalAmount : 0,
+  cartTotalQuantity : 0,
 }
 
 export const droneSlice = createSlice({
@@ -25,11 +11,47 @@ export const droneSlice = createSlice({
   initialState,
   reducers: {
     addItems : (state, action) => {
-      state = state.cart.push(action.payload);
-    }
-  },
-})
+      const findIndex = state.cart.findIndex((item) => item.id === action.payload.id);
+      if(findIndex >= 0){
+        state.cart[findIndex].cartQuantity += 1;
+      }else{
+        const temptProduct = {...action.payload, cartQuantity : 1}
+        state = state.cart.push(temptProduct);
+      }
+    },
+    addLike : (state, action) => {
+      state.cart.push(action.payload);
+    },
+    removeItem : (state, action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id)
+    },
+    decreaseQuantity : (state, action) => {
+      const findIndex = state.cart.findIndex((item) => item.id === action.payload.id);
+      if(state.cart[findIndex].cartQuantity > 1) {
+        state.cart[findIndex].cartQuantity -= 1;
+      }else if(state.cart[findIndex].cartQuantity === 1){
+        state.cart = state.cart.filter((item) => item.id !== action.payload.id)
+      }
+    },
+    getTotal : (state, action) => {
+      let { total, quantity } = state.cart.reduce((cartTotal, cartItem) => {
+        const { price, cartQuantity } = cartItem;
+        const totalItem = price * cartQuantity;
 
-export const { addItems } = droneSlice.actions
+        cartTotal.total += totalItem;
+        cartTotal.quantity += cartQuantity;
+
+        return cartTotal
+      }, {
+        total : 0,
+        quantity : 0
+      });
+      state.cartTotalAmount = total;
+      state.cartTotalQuantity = quantity;
+    }
+  }
+});
+
+export const { addItems, removeItem, decreaseQuantity, getTotal, addLike } = droneSlice.actions
 
 export default droneSlice.reducer
