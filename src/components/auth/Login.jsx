@@ -2,19 +2,41 @@ import React from 'react';
 import styled from 'styled-components';
 import {ArrowRight} from '@material-ui/icons';
 import { DroneState } from '../../context/Context';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from './firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { setMove, move } = DroneState();
+    const { setMove, move, email, setEmail, password, setPassword, setMoveAuth } = DroneState();
+    const navigate = useNavigate();
+    const signIn = async () => {
+        try {
+            const result = await signInWithEmailAndPassword(auth,email, password);
+            console.log(result.user.email);
+            navigate("/")
+            setMoveAuth(false)
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
   return (
     <Container>
         <Head>
             <h2>login</h2>
         </Head>
         <Body>
-            <input className='user' type="text" placeholder='Username'/>
+            <input 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className='user' type="text" placeholder='Email'/>
             <div className='pass'>
-                <input type="Password" placeholder='Password' className='password'/>
-                <button className='btn'><ArrowRight/></button>
+                <input 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="Password" placeholder='Password' className='password'/>
+                <button 
+                onClick={signIn}
+                className='btn'><ArrowRight/></button>
             </div>
             <p>forget password</p>
         </Body>

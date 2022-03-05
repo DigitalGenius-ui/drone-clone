@@ -1,21 +1,54 @@
 import React from "react";
 import styled from "styled-components";
+import { DroneState } from "../../context/Context";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
+
 const SignUp = () => {
+  const { user, setUser,
+    secondP, setSecondP,
+    rePassword, serRePassword,
+    secondE, setSecondE, setMoveAuth } = DroneState();
+
+    const navigate = useNavigate();
+    const addUser = async () => {
+      try {
+        const result = await createUserWithEmailAndPassword(auth, secondE, secondP);
+        console.log(result.user.secondE);
+        navigate("/")
+        setMoveAuth(false)
+      } catch (error) {
+        console.log(error)
+      }
+    }
   return (
     <Container>
       <Head>
         <h2>Sign Up</h2>
       </Head>
       <Body>
-        <input type="text" placeholder="Your user" />
-          <input type="email" placeholder="Your Email" />
-          <input type="password" placeholder="Your Password" />
-          <input type="password" placeholder="Re-type Password"  />
+        <input 
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
+        type="text" placeholder="Your user" />
+        <input 
+        value={secondE}
+        onChange={(e) => setSecondE(e.target.value)}
+        type="email" placeholder="Your Email" />
+        <input 
+        value={secondP}
+        onChange={(e) => setSecondP(e.target.value)}
+        type="password" placeholder="Your Password" />
+        <input 
+        value={rePassword}
+        onChange={(e) => serRePassword(e.target.value)}
+        type="password" placeholder="Re-type Password" />
       </Body>
       <Foot>
-        <button className="btn">
-          Create Account
-        </button>
+        <button 
+        onClick={addUser}
+        className="btn">Create Account</button>
       </Foot>
     </Container>
   );
