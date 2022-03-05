@@ -5,8 +5,9 @@ import { ExitToApp, Search, ShoppingBasket } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTotal } from '../../redux/slice';
+import { DroneState } from '../../context/Context';
 
-const Header = ({setSearch}) => {
+const Header = () => {
   const useStyles = makeStyles((theme) => ({
     customBadge:{
       backgroundColor : "#05c4e6",
@@ -19,14 +20,27 @@ const Header = ({setSearch}) => {
 
   useEffect(() => {
     dispatch(getTotal())
-  },[cart, dispatch])
+  },[cart, dispatch]);
+
+  const {setSearch,moveAuth, setMoveAuth, setMove, toggle, setToggle} = DroneState();
+
+  const authMove = () => {
+    setMoveAuth(!moveAuth);
+    setMove(false);
+  }
+
+  const toggleMove = () => {
+    setToggle(!toggle);
+  }
 
   return (
     <AppBar color="transparent" position='static'>
         <Toolbar>
             <Content>
-              <Burger>
-                  <div className='line'></div>
+              <Burger toggle={toggle}
+              onClick={toggleMove}
+              >
+                  <div className="line"></div>
               </Burger>
               <Link to="/">
                 <Typography variant="h4" className="logo">
@@ -46,8 +60,10 @@ const Header = ({setSearch}) => {
                   <Badge badgeContent={cart.cartTotalQuantity} classes={{badge : classes.customBadge}}>
                     <ShoppingBasket className="shopping"/></Badge>
                   </Link>
-                </Icon>
-                <Login><ExitToApp className="login"/></Login>
+                </Icon >
+                <Login
+                onClick={authMove}
+                ><ExitToApp className="log"/></Login>
               </Icons>
             </Content>
         </Toolbar>
@@ -76,7 +92,6 @@ const Content = styled.div`
     }
   }
 `
-
 const Burger = styled.div`
     width : 40px;
     height: 40px;
@@ -87,22 +102,23 @@ const Burger = styled.div`
     .line{
       width : 22px;
       height : 2.7px;
-      background-color :#05c4e6;
+      background-color : ${props => props.toggle ? "transparent" : "#05c4e6"};
       position : relative;
+      transition : all 300ms ease-in-out;
       :before, :after{
         content : '';
         position : absolute;
         width : 22px;
         height : 2.7px;
         background-color :#05c4e6;
+        transition : all 300ms ease-in-out
       }
       :before{
-        transform : translateY(7px)
+        transform : ${props => props.toggle ? "rotate(-45deg)" : "translateY(7px)"}
       }
       :after{
-        transform : translateY(-7px)
+        transform : ${props => props.toggle ? "rotate(45deg)" : "translateY(-7px)"};
       }
-
     }
 `
 const Icons = styled.div`
@@ -123,7 +139,6 @@ const Input = styled.div`
     display : none;
   }
 `
-
 const Icon = styled.div`
   color : #3333339d;
   margin-right: 1.5rem;
@@ -138,24 +153,17 @@ const Icon = styled.div`
       }
     }
 `
-
 const Login = styled.div`
-      width : 40px;
-      height: 40px;
+      width : 33px;
+      height: 33px;
       display : flex;
       align-items : center;
       justify-content : center;
-      margin-left: 1rem;
       cursor : pointer;
+      color : #3333339d;
+      transition : all 200ms ease-in-out;
       :hover{
         background-color: #61b830;
         color : white;
       }
-    .login{
-      width :1.3rem;
-      color : #3333339d;
-      :hover{
-        color : white;
-      }
-    }
 `

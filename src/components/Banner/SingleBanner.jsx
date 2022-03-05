@@ -35,7 +35,7 @@ const SingleBanner = ({item, error}) => {
 export default SingleBanner;
 
 const Products = styled.div`
-    background-color : #c7e6ff21;
+    background-color : #c7e6ff2b;
     display : flex;
     align-items: flex-end;
     justify-content: center;

@@ -5,10 +5,12 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import { settings } from '../slickSlider/SlickProduct';
 import { useGetAllProductsQuery } from '../../redux/fetchData';
+import { DroneState } from '../../context/Context';
 
-const Products = ({search}) => {
+const Products = () => {
     let productsItems = ""
     const { data, error } = useGetAllProductsQuery();
+    const { search } = DroneState(); 
     productsItems = 
     data?.filter((sear) => (
         sear.title.toLowerCase().includes(search)

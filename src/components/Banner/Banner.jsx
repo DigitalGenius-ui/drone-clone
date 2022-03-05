@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Slider from 'react-slick';
 import { useGetAllSlidesQuery } from '../../redux/fetchData';
 import { settings } from '../slickSlider/SettingSlick';
