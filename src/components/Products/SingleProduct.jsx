@@ -4,14 +4,21 @@ import styled from 'styled-components';
 import { LocalMall } from '@material-ui/icons';
 import { addItems, } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
+import { DroneState } from '../../context/Context';
 
 const SingleProduct = ({item}) => {
     const dispatch = useDispatch();
     const { id,img_url, title, price, disc,} = item;
+    const { setMessage } = DroneState();
     const addCart = () => {
         dispatch(addItems({
             id, img_url, title, price, disc
-        }))
+        }));
+        setMessage({
+            open : true,
+            text : `${title} Successfully Added`,
+            type : "success"
+        })
     }
   return (
     <Cart>

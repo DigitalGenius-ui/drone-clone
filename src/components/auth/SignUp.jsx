@@ -6,7 +6,7 @@ import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const { setMoveAuth } = DroneState();
+  const { setMoveAuth, setMessage } = DroneState();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,11 +17,19 @@ const SignUp = () => {
     const addUser = async () => {
       try {
         const result = await createUserWithEmailAndPassword(auth, email, password, user);
-        console.log(result.user.secondE);
+        setMessage({
+          open : true,
+          text : `${result.user.email} Signed Up`,
+          type : "success"
+        })
         navigate("/")
         setMoveAuth(false)
       } catch (error) {
-        console.log(error)
+        setMessage({
+          open : true,
+          text : error.message,
+          type : "error"
+        })
       }
     }
   return (

@@ -10,6 +10,11 @@ const Context = ({children}) => {
     const [moveAuth, setMoveAuth] = useState(false);
     const [toggle, setToggle] = useState(false);
     const [isAuth, setIsAuth] = useState(null);
+    const [message, setMessage] = useState({
+      open : false,
+      text : "Successfully Added",
+      type : "success",
+    })
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, isAuth => {
@@ -26,7 +31,8 @@ const Context = ({children}) => {
         move, setMove,
         moveAuth, setMoveAuth,
         toggle, setToggle,
-        isAuth
+        isAuth,
+        message, setMessage
     }}>
         {children}
     </droneContext.Provider>

@@ -7,18 +7,26 @@ import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { setMove, move, setMoveAuth } = DroneState();
+    const { setMove, move, setMoveAuth, setMessage } = DroneState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const signIn = async () => {
         try {
             const result = await signInWithEmailAndPassword(auth,email, password);
-            console.log(result.user.email);
+            setMessage({
+                open : true,
+                text : `${result.user.email} Signed in`,
+                type : "success"
+            })
             navigate("/")
             setMoveAuth(false)
         } catch (error) {
-            console.log(error.message)
+            setMessage({
+                open : true,
+                text : error.message,
+                type : "error"
+            })
         }
     }
   return (

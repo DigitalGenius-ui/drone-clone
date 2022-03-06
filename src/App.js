@@ -9,6 +9,7 @@ import SignIn from "./pages/SignIn";
 import styled from "styled-components";
 import DropMenu from './components/dropDown/DropMenu';
 import Container from './components/auth/Container';
+import AlertMessage from "./components/Alert/Alert";
 
 function App() {
   const {isAuth, toggle, moveAuth} = DroneState();
@@ -22,6 +23,7 @@ function App() {
         <div className="drop">
           <DropMenu/>
         </div>
+        <AlertMessage/>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           {isAuth && <Route path="/cart" element={<Cart/>}/>}

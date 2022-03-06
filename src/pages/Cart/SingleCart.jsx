@@ -2,19 +2,39 @@ import React from "react";
 import styled from "styled-components";
 import { removeItem, decreaseQuantity, addItems } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
+import { DroneState } from "../../context/Context";
 
 const SingleCart = ({item}) => {
     const { id,img_url, title, tagline, price, disc, cartQuantity } = item;
+    const { setMessage } = DroneState();
     const dispatch = useDispatch();
     const deleteCart = () => {
         dispatch(removeItem({
             id
-        }))
+        }));
+        setMessage({
+            open : true,
+            text : `${title} Successfully Deleted`,
+            type : "error"
+        });
     }
     const decreaseCart = () => {
         dispatch(decreaseQuantity({
             id
-        }))
+        }));
+        setMessage({
+            open : true,
+            text : "Item Decreased",
+            type : "error"
+        });
+    }
+    const increased = () => {
+        dispatch(addItems({id}));
+        setMessage({
+            open : true,
+            text : "Item Increased",
+            type : "success"
+        });
     }
   return (
     <Items>
@@ -33,7 +53,7 @@ const SingleCart = ({item}) => {
       <AddBtns>
           <button onClick={decreaseCart}>-</button>
           <span>{cartQuantity}</span>
-          <button onClick={() => dispatch(addItems({id}))}>+</button>
+          <button onClick={increased}>+</button>
       </AddBtns>
         <button
         onClick={deleteCart}

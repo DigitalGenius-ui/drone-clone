@@ -7,15 +7,20 @@ import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
 
 const LogOut = () => {
-    const {isAuth, setIsAuth, setMoveAuth} = DroneState();
+    const {isAuth, setIsAuth, setMoveAuth, setMessage} = DroneState();
     const navigate = useNavigate();
     const logOut = () => {
         signOut(auth).then(() => {
             setIsAuth(false);
-            navigate("/")
-            setMoveAuth(false)
-            localStorage.clear()
-        })
+            navigate("/");
+            setMoveAuth(false);
+            localStorage.clear();
+            setMessage({
+                open : true,
+                text : "logged out Successfully",
+                type : "success"
+            });
+        });
     }
   return (
     <Container>

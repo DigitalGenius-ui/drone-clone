@@ -2,14 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import  { addItems } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
+import { DroneState } from '../../context/Context';
 
 const SingleBanner = ({item, error}) => {
     const { id, title, tagline, img_url, price, disc } = item;
+    const { setMessage } = DroneState();
     const dispatch = useDispatch();
     const addCart = () => {
         dispatch(addItems({
             id, title, img_url, tagline, price, disc
-        }))
+        }));
+        setMessage({
+            open : true,
+            text : `${title} Successfully Added`,
+            type : "success"
+        })
     }
   return (
         <Products>
