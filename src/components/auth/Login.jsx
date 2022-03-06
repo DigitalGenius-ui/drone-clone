@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {ArrowRight} from '@material-ui/icons';
 import { DroneState } from '../../context/Context';
@@ -7,7 +7,9 @@ import { auth } from './firebase';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { setMove, move, email, setEmail, password, setPassword, setMoveAuth } = DroneState();
+    const { setMove, move, setMoveAuth } = DroneState();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const signIn = async () => {
         try {

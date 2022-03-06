@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { DroneState } from "../../context/Context";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -6,15 +6,17 @@ import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const { user, setUser,
-    secondP, setSecondP,
-    rePassword, serRePassword,
-    secondE, setSecondE, setMoveAuth } = DroneState();
+  const { setMoveAuth } = DroneState();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmedPass, setConfirmedPass] = useState("");
+    const [user, setUser] = useState("");
 
     const navigate = useNavigate();
     const addUser = async () => {
       try {
-        const result = await createUserWithEmailAndPassword(auth, secondE, secondP);
+        const result = await createUserWithEmailAndPassword(auth, email, password, user);
         console.log(result.user.secondE);
         navigate("/")
         setMoveAuth(false)
@@ -33,16 +35,16 @@ const SignUp = () => {
         onChange={(e) => setUser(e.target.value)}
         type="text" placeholder="Your user" />
         <input 
-        value={secondE}
-        onChange={(e) => setSecondE(e.target.value)}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         type="email" placeholder="Your Email" />
         <input 
-        value={secondP}
-        onChange={(e) => setSecondP(e.target.value)}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         type="password" placeholder="Your Password" />
         <input 
-        value={rePassword}
-        onChange={(e) => serRePassword(e.target.value)}
+        value={confirmedPass}
+        onChange={(e) => setConfirmedPass(e.target.value)}
         type="password" placeholder="Re-type Password" />
       </Body>
       <Foot>

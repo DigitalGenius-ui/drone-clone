@@ -9,14 +9,7 @@ const Context = ({children}) => {
     const [move, setMove] = useState(false);
     const [moveAuth, setMoveAuth] = useState(false);
     const [toggle, setToggle] = useState(false);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [isAuth, setIsAuth] = useState(null);
-    
-    const [user, setUser] = useState("");
-    const [secondE, setSecondE] = useState("");
-    const [rePassword, serRePassword] = useState("");
-    const [secondP, setSecondP] = useState("");
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, isAuth => {
@@ -33,12 +26,6 @@ const Context = ({children}) => {
         move, setMove,
         moveAuth, setMoveAuth,
         toggle, setToggle,
-        password, setPassword,
-        email, setEmail,
-        user, setUser,
-        secondP, setSecondP,
-        rePassword, serRePassword,
-        secondE, setSecondE,
         isAuth
     }}>
         {children}
