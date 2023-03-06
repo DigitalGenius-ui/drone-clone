@@ -12,7 +12,7 @@ const Products = () => {
     const { data, error } = useGetAllProductsQuery();
     const { search } = DroneState(); 
     productsItems = 
-    data?products.filter((sear) => (
+    data?.products.filter((sear) => (
         sear.title.toLowerCase().includes(search)
     )).map((item, i) => (
         <SingleProduct item={item} key={i}/>
