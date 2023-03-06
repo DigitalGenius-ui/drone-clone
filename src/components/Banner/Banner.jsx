@@ -9,9 +9,10 @@ import { ArrowForwardIos, ArrowBackIos } from '@material-ui/icons';
 
 const Banner = () => {
   const { data, error, isLoading } = useGetAllSlidesQuery();
+
   let productsItems = ""
     productsItems = 
-    data?.map((item, i) => (
+    data?.slider.map((item, i) => (
         <SingleBanner item={item} key={i}/>
     ));
     const slider = React.useRef(null);
