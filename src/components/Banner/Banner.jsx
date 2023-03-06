@@ -11,7 +11,7 @@ const Banner = () => {
   const { data, error, isLoading } = useGetAllSlidesQuery();
   let productsItems = ""
     productsItems = 
-    data?.map((item, i) => (
+    data?slides.map((item, i) => (
         <SingleBanner item={item} key={i}/>
     ));
     const slider = React.useRef(null);
