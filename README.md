@@ -19,7 +19,7 @@
 
 ## Description
 
-Droner Shopping & Landing Page is a droner corporate demo webpage. Users could view the company's product lineup and find out information about the business on the website. The user needs to be authenticated in order to add the item to their cart, and firebase handles authentication. In order to handle adding, removing, incrementing, and decrementing products from the cart and fetch data from a restfull api, Redux Toolkit is implemented. The Node JS and Express JS-based restful api is hosted by railway and was built for that purpose. Style-components are used exclusively to create the website's style.
+Droner Shopping & Landing Page is a demo webpage for droner company. Users could view the company's product lineup and find out information about the business on the website. The user needs to be authenticated in order to add the item to their cart, and firebase handles authentication. In order to handle adding, removing, incrementing, and decrementing products from the cart and fetch data from a restfull api, Redux Toolkit is implemented. The Node JS and Express JS-based restful api is hosted by railway and was built for that purpose. Style-components are used exclusively to create the website's style.
 
 
 ## Technologies
