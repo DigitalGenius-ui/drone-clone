@@ -14,7 +14,7 @@
 - Add To Cart
 - Remove From Cart
 - Increment and Decrement 
-- Rest
+- Rest API
 
 
 ## Description
