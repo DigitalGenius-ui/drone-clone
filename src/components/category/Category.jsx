@@ -4,87 +4,50 @@ import styled from "styled-components";
 import { ArrowRight } from "@material-ui/icons";
 
 const Category = () => {
+  const categories = [
+    {
+      title: "MultiCopters",
+      logo: "https://digitalgenius-ui.github.io/drone/images/imag1.png",
+    },
+    {
+      title: "AirPlanes",
+      logo: "https://digitalgenius-ui.github.io/drone/images/imag2.png",
+    },
+    {
+      title: "Other Dronss",
+      logo: "https://digitalgenius-ui.github.io/drone/images/image3.png",
+    },
+    {
+      title: "Flight Electronics",
+      logo: "https://digitalgenius-ui.github.io/drone/images/imag4.png",
+    },
+    {
+      title: "View All",
+      logo: "https://www.shareicon.net/data/2015/08/03/79323_windows_512x512.png",
+    },
+  ];
   return (
     <Contents>
       <Typography className="title" variant="h4">
         Popular Category
       </Typography>
       <Items>
-        <Content>
-          <img
-            src="https://digitalgenius-ui.github.io/drone/images/imag1.png"
-            alt="signs"
-          />
-          <div>
-            MultiCopters
-            <ArrowRight
-              style={{
-                fontSize: "1.2rem",
-                marginLeft: "-0.2rem",
-                marginTop: "0.2rem",
-              }}
+        {categories.map((cat, i) => (
+          <Content key={i}>
+            <img
+              style={{ width: "3.7rem", opacity: "0.6" }}
+              src={cat.logo}
+              alt="signs"
+              className={cat.title === "View All" && "all"}
             />
-          </div>
-        </Content>
-        <Content>
-          <img
-            src="https://digitalgenius-ui.github.io/drone/images/imag2.png"
-            alt="signs"
-          />
-          <div>
-            AirPlanes
-            <ArrowRight
-              style={{
-                fontSize: "1.2rem",
-                marginLeft: "-0.2rem",
-                marginTop: "0.2rem",
-              }}
-            />
-          </div>
-        </Content>
-        <Content>
-          <img
-            src="https://digitalgenius-ui.github.io/drone/images/image3.png"
-            alt="signs"
-          />
-          <div>
-            Other Dronss
-            <ArrowRight
-              style={{
-                fontSize: "1.2rem",
-                marginLeft: "-0.2rem",
-                marginTop: "0.2rem",
-              }}
-            />
-          </div>
-        </Content>
-        <Content>
-          <img
-            src="https://digitalgenius-ui.github.io/drone/images/imag4.png"
-            alt="signs"
-          />
-          <div>
-            Flight Electronics
-            <ArrowRight
-              style={{
-                fontSize: "1.2rem",
-                marginLeft: "-0.2rem",
-                marginTop: "0.2rem",
-              }}
-            />
-          </div>
-        </Content>
-        <Content>
-          <img
-            style={{ width: "3.7rem", opacity: "0.6" }}
-            src="https://site-1278683.mozfiles.com/files/1278683/klipartz_com__58_.png?1621812085"
-            alt="signs"
-          />
-          <div style={{ marginTop: "0.5rem" }}>
-            View All
-            <ArrowRight style={{ fontSize: "1.2rem", marginLeft: "-0.2rem" }} />
-          </div>
-        </Content>
+            <div>
+              {cat.title}
+              <ArrowRight
+                style={{ fontSize: "1.2rem", marginLeft: "-0.2rem" }}
+              />
+            </div>
+          </Content>
+        ))}
       </Items>
     </Contents>
   );
@@ -102,12 +65,19 @@ const Contents = styled.div`
     font-weight: 600;
     color: #3333339d;
   }
+  .all {
+    width: "3.7rem";
+    opacity: "0.6";
+  }
 `;
 const Content = styled.div`
   width: 100%;
+  height: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+
   div {
     display: flex;
     align-items: center;
@@ -115,7 +85,11 @@ const Content = styled.div`
     font-size: 0.9rem;
     color: #333333c3;
     font-weight: 400;
-    cursor : pointer;
+    cursor: pointer;
+
+    :hover {
+      color: #000;
+    }
   }
 `;
 const Items = styled.div`
@@ -124,4 +98,5 @@ const Items = styled.div`
   margin-top: 5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: center;
 `;
