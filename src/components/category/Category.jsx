@@ -38,20 +38,12 @@ const Category = () => {
               style={{ width: "3.7rem", opacity: "0.6" }}
               src={cat.logo}
               alt="signs"
-<<<<<<< HEAD
-              className={cat.title === "View All" ? "all" : ""}
+              className={cat.title === "View All" ? "all" : null}
             />
             <div>
               {cat.title}
               <ArrowRightIcon
-=======
-              className={cat.title === "View All" && "all"}
-            />
-            <div>
-              {cat.title}
-              <ArrowRight
->>>>>>> 287bb7b1a3f565e62e26da8dcd5c463b021e18d2
-                style={{ fontSize: "1.2rem", marginLeft: "-0.2rem" }}
+                className={cat.title === "View All" ? "all" : null}
               />
             </div>
           </Content>
