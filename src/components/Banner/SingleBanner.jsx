@@ -25,7 +25,7 @@ const SingleBanner = ({item, error}) => {
                 <h2 className='tag'>{tagline}</h2>
             </Text>
             <Img>
-                <Image src={img_url} />
+                <Image src={img_url} alt="banner-img"/>
             </Img>
             <Add>
                 <h4>${price}
