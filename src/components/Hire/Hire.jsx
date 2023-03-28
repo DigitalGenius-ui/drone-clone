@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import styled from "styled-components";
-import { ArrowRight } from "@material-ui/icons";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 const Hire = () => {
   return (
@@ -21,8 +21,8 @@ const Hire = () => {
           quasi, eaque dolor totam deserunt nulla.
         </Typography>
         <Btns>
-          <button className="btn">Browse Directory<ArrowRight/></button>
-          <button className="btn">Register as Drone Photographer<ArrowRight/></button>
+          <button className="btn">Browse Directory<ArrowRightIcon/></button>
+          <button className="btn">Register as Drone Photographer<ArrowRightIcon/></button>
         </Btns>
       </Items>
     </Contents>

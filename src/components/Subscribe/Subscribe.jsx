@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import styled from "styled-components";
-import { ArrowRight } from "@material-ui/icons";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 const Hire = () => {
   return (
@@ -10,8 +10,10 @@ const Hire = () => {
         Subscribe A Newsletter
       </Typography>
       <Form>
-        <input type="text" placeholder="Your Email Address"/>
-        <button><ArrowRight/></button>
+        <input type="text" placeholder="Your Email Address" />
+        <button>
+          <ArrowRightIcon />
+        </button>
       </Form>
     </Contents>
   );

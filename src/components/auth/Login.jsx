@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {ArrowRight} from '@material-ui/icons';
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { DroneState } from '../../context/Context';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from './firebase';
@@ -46,7 +46,7 @@ const Login = () => {
                 type="Password" placeholder='Password' className='password'/>
                 <button 
                 onClick={signIn}
-                className='btn'><ArrowRight/></button>
+                className='btn'><ArrowRightIcon/></button>
             </div>
             <p>forget password</p>
         </Body>
@@ -54,7 +54,7 @@ const Login = () => {
             <p>Don't Have An Account?</p>
             <button 
             onClick={() => setMove(!move)}
-            className='btn'>Create Account<ArrowRight/></button>
+            className='btn'>Create Account<ArrowRightIcon/></button>
         </Foot>
     </Container>
   )

@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import styled from "styled-components";
-import { ArrowRight } from "@material-ui/icons";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 const Learning = () => {
   return (
@@ -13,47 +13,103 @@ const Learning = () => {
         <div className="cart">
           <div className="item">
             <div className="text">
-              <h4 style={{fontSize : "0.9rem"}}>How to assemble quadcopter?</h4>
-              <p style={{fontSize : "0.8rem", paddingTop : "0.2rem", fontWeight : "400"}}>by David Hotines</p>
+              <h4 style={{ fontSize: "0.9rem" }}>
+                How to assemble quadcopter?
+              </h4>
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  paddingTop: "0.2rem",
+                  fontWeight: "400",
+                }}
+              >
+                by David Hotines
+              </p>
             </div>
             <div className="img">
               <img
-              style={{width : "3rem", height : "3rem", objectFit : "cover", borderRadius : "50px", border : "2px solid #fff"}}
-              src="https://digitalgenius-ui.github.io/drone/images/jawad.jpg" alt="author" />
+                style={{
+                  width: "3rem",
+                  height: "3rem",
+                  objectFit: "cover",
+                  borderRadius: "50px",
+                  border: "2px solid #fff",
+                }}
+                src="https://digitalgenius-ui.github.io/drone/images/jawad.jpg"
+                alt="author"
+              />
             </div>
           </div>
         </div>
         <div className="cart">
           <div className="item1">
             <div className="text">
-              <h4 style={{fontSize : "0.9rem"}}>Dji Phantom quacopter drons</h4>
-              <p style={{fontSize : "0.8rem", paddingTop : "0.2rem", fontWeight : "400"}}>by Colin Smith</p>
+              <h4 style={{ fontSize: "0.9rem" }}>
+                Dji Phantom quacopter drons
+              </h4>
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  paddingTop: "0.2rem",
+                  fontWeight: "400",
+                }}
+              >
+                by Colin Smith
+              </p>
             </div>
             <div className="img">
               <img
-              style={{width : "3rem", height : "3rem", objectFit : "cover", borderRadius : "50px", border : "2px solid #fff"}}
-              src="https://digitalgenius-ui.github.io/drone/images/mahdi.jpg" alt="author" />
+                style={{
+                  width: "3rem",
+                  height: "3rem",
+                  objectFit: "cover",
+                  borderRadius: "50px",
+                  border: "2px solid #fff",
+                }}
+                src="https://digitalgenius-ui.github.io/drone/images/mahdi.jpg"
+                alt="author"
+              />
             </div>
           </div>
         </div>
         <div className="cart">
           <div className="item3">
             <div className="text">
-              <h4 style={{fontSize : "0.9rem"}}>Dji Phantom quacopter drons</h4>
-              <p style={{fontSize : "0.8rem", paddingTop : "0.2rem", fontWeight : "400"}}>by Colin Smith</p>
+              <h4 style={{ fontSize: "0.9rem" }}>
+                Dji Phantom quacopter drons
+              </h4>
+              <p
+                style={{
+                  fontSize: "0.8rem",
+                  paddingTop: "0.2rem",
+                  fontWeight: "400",
+                }}
+              >
+                by Colin Smith
+              </p>
             </div>
             <div className="img">
               <img
-              style={{width : "3rem", height : "3rem", objectFit : "cover", borderRadius : "50px", border : "2px solid #fff"}}
-              src="https://digitalgenius-ui.github.io/drone/images/mahdi.jpg" alt="author" />
+                style={{
+                  width: "3rem",
+                  height: "3rem",
+                  objectFit: "cover",
+                  borderRadius: "50px",
+                  border: "2px solid #fff",
+                }}
+                src="https://digitalgenius-ui.github.io/drone/images/mahdi.jpg"
+                alt="author"
+              />
             </div>
           </div>
         </div>
       </Items>
-        <Btn>
-          <button className="btn">Visit Learning Center<ArrowRight
-          style={{marginLeft : "-0.2rem"}}/></button>
-        </Btn>
+      <Btn>
+        <button className="btn">
+          Visit Learning Center
+          <ArrowRightIcon style={{ marginLeft: "-0.2rem" }} />
+        </button>
+      </Btn>
     </Contents>
   );
 };

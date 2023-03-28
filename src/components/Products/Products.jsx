@@ -1,15 +1,16 @@
 import React from 'react';
 import SingleProduct from './SingleProduct';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import { settings } from '../slickSlider/SlickProduct';
-import { useGetAllProductsQuery } from '../../redux/fetchData';
+// import { useGetAllProductsQuery } from '../../redux/fetchData';
 import { DroneState } from '../../context/Context';
+import data from "../../Data/data.json";
 
 const Products = () => {
     let productsItems = ""
-    const { data, error } = useGetAllProductsQuery();
+    // const { data, error } = useGetAllProductsQuery();
     const { search } = DroneState(); 
     productsItems = 
     data?.products.filter((sear) => (
@@ -22,7 +23,7 @@ const Products = () => {
         <Typography variant="h3" className="text">
             Treading Products
         </Typography>
-        {error && <div>{error}</div>}
+        {/* {error && <div>{error}</div>} */}
         <div
         className='slider'
         ><Slider {...settings}>{productsItems}</Slider></div>

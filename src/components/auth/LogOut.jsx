@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from "@mui/material/Avatar";
 import { DroneState } from '../../context/Context';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase';

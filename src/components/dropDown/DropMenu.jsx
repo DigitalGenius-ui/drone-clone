@@ -1,4 +1,4 @@
-import { ArrowRight } from "@material-ui/icons";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import React from "react";
 import styled from "styled-components";
 
@@ -9,7 +9,7 @@ const DropMenu = () => {
       <ul className="lists">
         <li className="list">
           <p>
-            <ArrowRight className="arrow" />
+            <ArrowRightIcon className="arrow" />
             buy
           </p>
           <ul>
@@ -23,7 +23,7 @@ const DropMenu = () => {
       <ul className="sells">
         <li className="sell">
           <p>
-            <ArrowRight className="arrow" />
+            <ArrowRightIcon className="arrow" />
             sell
           </p>
           <ul>
@@ -37,7 +37,7 @@ const DropMenu = () => {
       <ul className="rents">
         <li className="rent">
           <p>
-            <ArrowRight className="arrow" />
+            <ArrowRightIcon className="arrow" />
             rent
           </p>
           <ul>
@@ -51,7 +51,7 @@ const DropMenu = () => {
       <ul className="hires">
         <li className="hire">
           <p>
-            <ArrowRight className="arrow" />
+            <ArrowRightIcon className="arrow" />
             hire
           </p>
           <ul>
@@ -66,7 +66,7 @@ const DropMenu = () => {
         <ul className="lists">
           <li className="list">
             <p>
-              <ArrowRight className="arrow" />
+              <ArrowRightIcon className="arrow" />
               buy
             </p>
             <ul>
@@ -80,7 +80,7 @@ const DropMenu = () => {
         <ul className="sells">
           <li className="sell">
             <p>
-              <ArrowRight className="arrow" />
+              <ArrowRightIcon className="arrow" />
               sell
             </p>
             <ul>
@@ -94,7 +94,7 @@ const DropMenu = () => {
         <ul className="rents">
           <li className="rent">
             <p>
-              <ArrowRight className="arrow" />
+              <ArrowRightIcon className="arrow" />
               rent
             </p>
             <ul>
@@ -108,7 +108,7 @@ const DropMenu = () => {
         <ul className="hires">
           <li className="hire">
             <p>
-              <ArrowRight className="arrow" />
+              <ArrowRightIcon className="arrow" />
               hire
             </p>
             <ul>
@@ -121,7 +121,7 @@ const DropMenu = () => {
         </ul>
       </Body>
       <Foot>
-          <h2>library</h2>
+        <h2>library</h2>
       </Foot>
     </Container>
   );
@@ -195,16 +195,16 @@ const Container = styled.div`
   }
 `;
 const Body = styled(Container)`
-    margin-top: 0.5rem;
-    border-top: 2px solid #8b8a8a;
-    border-bottom: 2px solid #8b8a8a;
-    padding: 0.5rem 0;
-`
+  margin-top: 0.5rem;
+  border-top: 2px solid #8b8a8a;
+  border-bottom: 2px solid #8b8a8a;
+  padding: 0.5rem 0;
+`;
 
 const Foot = styled.div`
-    padding: 0.5rem 0 ;
-    h2{
-        font-weight: 400;
-        cursor: pointer;
-    }
-`
+  padding: 0.5rem 0;
+  h2 {
+    font-weight: 400;
+    cursor: pointer;
+  }
+`;

@@ -5,10 +5,6 @@ export const droneApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://drone-api-production.up.railway.app",
   }),
-  reducerPath: "droneApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://drone-api-production.up.railway.app",
-  }),
 
   endpoints: (builder) => ({
     getAllSlides: builder.query({

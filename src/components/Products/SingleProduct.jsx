@@ -1,7 +1,7 @@
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import React from 'react';
 import styled from 'styled-components';
-import { LocalMall } from '@material-ui/icons';
+import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { addItems, } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
 import { DroneState } from '../../context/Context';
@@ -22,22 +22,22 @@ const SingleProduct = ({item}) => {
     }
   return (
     <Cart>
-        <Img>
-            <Image src={img_url}/>
-        </Img>
-        <Typography className="title" variant="h6">
-            {title}
+      <Img>
+        <Image src={img_url} />
+      </Img>
+      <Typography className="title" variant="h6">
+        {title}
+      </Typography>
+      <Footer>
+        <Typography variant="h6" className="price">
+          ${price}
         </Typography>
-        <Footer>
-            <Typography variant="h6" className="price">
-                ${price}
-            </Typography>
-            <Icons>
-                <div
-                onClick={addCart}
-                ><LocalMall className="shopping"/></div>
-            </Icons>
-        </Footer>
+        <Icons>
+          <div onClick={addCart}>
+            <LocalMallIcon className="shopping" />
+          </div>
+        </Icons>
+      </Footer>
     </Cart>
   );
 }

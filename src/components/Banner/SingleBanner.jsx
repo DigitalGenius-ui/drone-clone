@@ -4,7 +4,7 @@ import  { addItems } from '../../redux/slice';
 import { useDispatch } from 'react-redux';
 import { DroneState } from '../../context/Context';
 
-const SingleBanner = ({item, error}) => {
+const SingleBanner = ({item}) => {
     const { id, title, tagline, img_url, price, disc } = item;
     const { setMessage } = DroneState();
     const dispatch = useDispatch();

@@ -33,7 +33,7 @@ export const droneSlice = createSlice({
         state.cart = state.cart.filter((item) => item.id !== action.payload.id)
       }
     },
-    getTotal : (state, action) => {
+    getTotal : (state) => {
       let { total, quantity } = state.cart.reduce((cartTotal, cartItem) => {
         const { price, cartQuantity } = cartItem;
         const totalItem = price * cartQuantity;

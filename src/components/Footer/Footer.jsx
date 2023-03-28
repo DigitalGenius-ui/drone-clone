@@ -1,4 +1,6 @@
-import { Facebook, LinkedIn, Twitter } from "@material-ui/icons";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
 import React from "react";
 import styled from "styled-components";
 
@@ -29,9 +31,9 @@ const Footer = () => {
             </ul>
             <ul>
                 <li>Follow Us</li>
-                <li className="icons"><Facebook style={{fontSize : "1.3rem"}}/>Facebook</li>
-                <li className="icons"><Twitter style={{fontSize : "1.3rem"}}/>Twitter</li>
-                <li className="icons"><LinkedIn style={{fontSize : "1.3rem"}}/>LinkedIn</li>
+                <li className="icons"><FacebookIcon style={{fontSize : "1.3rem"}}/>Facebook</li>
+                <li className="icons"><LinkedInIcon style={{fontSize : "1.3rem"}}/>Twitter</li>
+                <li className="icons"><TwitterIcon style={{fontSize : "1.3rem"}}/>LinkedIn</li>
             </ul>
         </Table>
         <Content>

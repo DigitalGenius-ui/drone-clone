@@ -1,7 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import styled from "styled-components";
-import { ArrowRight } from "@material-ui/icons";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 const Category = () => {
   const categories = [
@@ -38,11 +38,11 @@ const Category = () => {
               style={{ width: "3.7rem", opacity: "0.6" }}
               src={cat.logo}
               alt="signs"
-              className={cat.title === "View All" && "all"}
+              className={cat.title === "View All" ? "all" : ""}
             />
             <div>
               {cat.title}
-              <ArrowRight
+              <ArrowRightIcon
                 style={{ fontSize: "1.2rem", marginLeft: "-0.2rem" }}
               />
             </div>
