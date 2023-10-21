@@ -7,6 +7,7 @@ import SignUp from "./SignUp";
 
 const Container = () => {
   const { move, isAuth } = DroneState();
+
   return (
     <Wrapper move={move} isAuth={isAuth}>
       {!isAuth ? (
@@ -34,7 +35,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  padding: ${props => props.isAuth ? "0.7rem 0" : "2rem 0"};
+  padding: ${(props) => (props.isAuth ? "0.7rem 0" : "2rem 0")};
   overflow: hidden;
   .signup {
     position: absolute;

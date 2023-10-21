@@ -76,6 +76,8 @@ const Content = styled.div`
   justify-content: space-between;
   width: 100%;
   a {
+    flex: 1;
+    text-align: center;
     color: #3333339d;
     text-decoration: none;
   }

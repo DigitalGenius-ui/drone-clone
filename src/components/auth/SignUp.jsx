@@ -1,64 +1,81 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { DroneState } from "../../context/Context";
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 const SignUp = () => {
-  const { setMoveAuth, setMessage } = DroneState();
+  const { setMoveAuth, setMessage, setMove } = DroneState();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmedPass, setConfirmedPass] = useState("");
-    const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPass, setConfirmedPass] = useState("");
+  const [user, setUser] = useState("");
 
-    const navigate = useNavigate();
-    const addUser = async () => {
-      try {
-        const result = await createUserWithEmailAndPassword(auth, email, password, user);
-        setMessage({
-          open : true,
-          text : `${result.user.email} Signed Up`,
-          type : "success"
-        })
-        navigate("/")
-        setMoveAuth(false)
-      } catch (error) {
-        setMessage({
-          open : true,
-          text : error.message,
-          type : "error"
-        })
-      }
+  const navigate = useNavigate();
+  const addUser = async () => {
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+        user
+      );
+      setMessage({
+        open: true,
+        text: `${result.user.email} Signed Up`,
+        type: "success",
+      });
+      navigate("/");
+      setMoveAuth(false);
+    } catch (error) {
+      setMessage({
+        open: true,
+        text: error.message,
+        type: "error",
+      });
     }
+  };
   return (
     <Container>
+      <Icon onClick={() => setMove(false)}>
+        <ChevronLeftIcon sx={{ fontSize: "1.3rem", pointerEvents: "none" }} />
+      </Icon>
       <Head>
         <h2>Sign Up</h2>
       </Head>
       <Body>
-        <input 
-        value={user}
-        onChange={(e) => setUser(e.target.value)}
-        type="text" placeholder="Your user" />
-        <input 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        type="email" placeholder="Your Email" />
-        <input 
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        type="password" placeholder="Your Password" />
-        <input 
-        value={confirmedPass}
-        onChange={(e) => setConfirmedPass(e.target.value)}
-        type="password" placeholder="Re-type Password" />
+        <input
+          value={user}
+          onChange={(e) => setUser(e.target.value)}
+          type="text"
+          placeholder="Your user"
+        />
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Your Email"
+        />
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Your Password"
+        />
+        <input
+          value={confirmedPass}
+          onChange={(e) => setConfirmedPass(e.target.value)}
+          type="password"
+          placeholder="Re-type Password"
+        />
       </Body>
       <Foot>
-        <button 
-        onClick={addUser}
-        className="btn">Create Account</button>
+        <button onClick={addUser} className="btn">
+          Create Account
+        </button>
       </Foot>
     </Container>
   );
@@ -69,6 +86,22 @@ export default SignUp;
 const Container = styled.div`
   width: 15rem;
 `;
+const Icon = styled.span`
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  background-color: #0aaf54;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const Head = styled.div`
   h2 {
     text-transform: uppercase;
