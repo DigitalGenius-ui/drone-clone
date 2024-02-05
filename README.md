@@ -1,7 +1,7 @@
 ## Droner Shopping & Landing Page using react js
 
 
-<img src="https://res.cloudinary.com/ghazni/image/upload/v1678157200/Screenshot_2023-03-07_at_10-44-47_Drone_Clone_q1ffit.png" alt="droner"/>
+<img src="/drone.png" alt="droner"/>
 
 ## Demo
 
