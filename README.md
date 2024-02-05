@@ -1,7 +1,7 @@
 ## Droner Shopping & Landing Page using react js
 
 
-<img src="/drone.png" alt="droner"/>
+<img src="./public/drone.png" alt="droner"/>
 
 ## Demo
 
